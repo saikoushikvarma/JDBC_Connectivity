@@ -1,44 +1,27 @@
 package org.example;
 
 import java.sql.*;
+import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
+        QueryMethods qm = new QueryMethods();
 
-        String mutateQuery = "INSERT INTO users (id, username) VALUES (?, ?)";
+//        Add Student to DB.
+//        qm.addStudent("teja");
 
-        try{
-            Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/JDBCPractice", "postgres", "KoushiK11@");
-            Statement stmt = con.createStatement();
-            // for table creation
-//            stmt.executeQuery("CREATE TABLE IF NOT EXISTS users(id int primary key unique not null, username varchar(255))");
-//            stmt.close();
+//        fetching the entire table
+//        LinkedList<Student> data = qm.getStudents();
+//        data.forEach(student -> System.out.println(student.Name + "  " + student.RollNo));
 
-            // for mutate/update the table
-//            PreparedStatement pstmt = con.prepareStatement(mutateQuery);
-//            pstmt.setInt(1, 2);
-//            pstmt.setString(2, "Sai Teja");
-//            pstmt.executeUpdate();
+//        fetching specific record
+//        Student s = qm.getStudent(2);
+//        System.out.println(s.RollNo + " " + s.Name);
 
-//            pstmt.setInt(1, 2);
-//            pstmt.setString(2, "Sai Teja");
-//            pstmt.executeUpdate();
+//        update the specific record
+//            qm.updateStudent(2, "varma");
 
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-
-
-
-            while(rs.next()){
-                System.out.println(rs.getString("username"));
-            }
-
-            rs.close();
-            stmt.close();
-//            pstmt.close();
-            con.close();
-
-        }catch (Exception e){
-            System.out.println(e);
-        }
+//        delete particular row
+//            qm.deleteStudent(2);
     }
 }
